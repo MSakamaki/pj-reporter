@@ -2,13 +2,12 @@
 
 [![Build Status](https://travis-ci.org/MSakamaki/pj-reporter.svg?branch=master)](https://travis-ci.org/MSakamaki/pj-reporter)
 
-[angular/cli](https://github.com/angular/angular-cli) or [nrwl/nx](https://github.com/nrwl/nx) e2e spec pdf reporter
+e2e spec pdf reporter for [angular/cli](https://github.com/angular/angular-cli) or [nrwl/nx](https://github.com/nrwl/nx) using puppeteer
 
 ## Install
 
 ```sh
-# comming soon
-
+npm install pj-reporter
 ```
 
 ## Usage
