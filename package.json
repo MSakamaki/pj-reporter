@@ -4,7 +4,7 @@
   "description": "protractor + puppeteer + jasmine reporter",
   "main": "dist/index.js",
   "scripts": {
-    "wdm.update":"webdriver-manager update",
+    "wdm.update":"./node_modules/protractor/bin/webdriver-manager update --gecko=false",
     "checkformat": "prettier src/**/*.ts --list-different",
     "format": "prettier src/**/*.ts --write",
     "e2e": "del-cli pdf/* && npm run build && protractor example/conf.js && ls -la pdf/*",
