@@ -1,11 +1,11 @@
 
 import { browser, element, by } from 'protractor';
 
-import { GeneratePDF } from '../dist';
+import { makeSpecPDF } from '../dist';
 
 describe('Nested Case', function () {
   afterAll(async () => {
-    await GeneratePDF(this, {
+    await makeSpecPDF(this, {
       url: await browser.getCurrentUrl(),
       valid: ['a.hero-cta'],
     });

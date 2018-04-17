@@ -17,13 +17,16 @@ see [example](./example/sample.spec.ts)
 
 ```typescript
 
-afterAll(async () => {
-  await GeneratePDF(this, {
-    url: 'about:blank',
-    valid: [],
+describe('Nested Case', function () {
+  afterAll(async () => {
+    await makeSpecPdf(this, {
+      url: 'about:blank',
+      valid: [],
+    });
   });
-});
 
+  it('spec it...', () => expect(1).toEqual(1) );
+});
 ```
 
 ## License

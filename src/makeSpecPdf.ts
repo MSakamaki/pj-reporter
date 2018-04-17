@@ -1,7 +1,7 @@
 import { launch, PDFOptions } from 'puppeteer';
 import { join } from 'path';
 
-import { JasmineSuite, GeneratePdfOptions } from './interface';
+import { JasmineSuite, MakeSpecPdfOptions } from './interface';
 import { fotterSpecs } from './scraping.footer';
 import { headerSpec } from './scraping.header';
 import { readConfg } from './config';
@@ -9,9 +9,14 @@ import { MakeDir } from './utils';
 
 const config = readConfg();
 
-export async function GeneratePDF(
+/**
+ * Output test spec and first page to the footer.
+ * @param suite Jasmine.suite
+ * @param options MakeSpecPdfOptions
+ */
+export async function makeSpecPDF(
   suite: JasmineSuite,
-  options: GeneratePdfOptions,
+  options: MakeSpecPdfOptions,
 ) {
   // setting default options
   options.headerHeight = options.headerHeight || `${config.headerHeight}px`;

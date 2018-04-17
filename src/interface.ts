@@ -1,4 +1,4 @@
-export interface GeneratePdfOptions {
+export interface BaseSpecPdfOptions {
   /** page to url */
   url: string;
   /**
@@ -9,6 +9,9 @@ export interface GeneratePdfOptions {
    * If omitted, the top-level description text will be applied
    */
   title?: string;
+}
+
+export interface MakeSpecPdfOptions extends BaseSpecPdfOptions {
   /**
    * header conents Height
    * default 60px
@@ -19,6 +22,19 @@ export interface GeneratePdfOptions {
    * default 500px
    */
   footerHeight?: string;
+}
+
+export interface MakeDisplayPdfOptions extends BaseSpecPdfOptions {
+  /** pfd and file name */
+  title: string;
+  /**
+   * conents Height
+   */
+  displayHeight: number;
+  /**
+   * conents Width
+   */
+  displayWidth: number;
 }
 
 export interface JasmineSuite {
