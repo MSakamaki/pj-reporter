@@ -1,12 +1,13 @@
 {
   "name": "pj-reporter",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "protractor + puppeteer + jasmine reporter",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
+    "p":"ts-node ./scripts/publish.ts",
     "wdm.update":"./node_modules/protractor/bin/webdriver-manager update --gecko=false",
-    "checkformat": "prettier src/**/*.ts --list-different",
-    "format": "prettier src/**/*.ts --write",
+    "checkformat": "prettier src/**/*.ts scripts/*.ts --list-different",
+    "format": "prettier src/**/*.ts scripts/*.ts --write",
     "e2e": "del-cli pdf/* && npm run build && protractor example/conf.js && ls -la pdf/*",
     "test": "npm run build && jest dist",
     "build": "npm run clean && tsc -p tsconfig.json",
