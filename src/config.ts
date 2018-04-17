@@ -11,14 +11,16 @@ export const defaultConfig: PjreporterConfig = {
   display: {
     width: 1048,
     height: 680,
-  }
+  },
 };
 
 const confFile = './pjreporter.config.json';
 
 export const readConfg = (): PjreporterConfig => ({
   ...defaultConfig,
-  ...isExistsFile(confFile) ? JSON.parse(readFileSync(confFile).toString('utf-8')) as PjreporterConfig : {}
+  ...(isExistsFile(confFile)
+    ? (JSON.parse(readFileSync(confFile).toString('utf-8')) as PjreporterConfig)
+    : {}),
 });
 
 export interface PjreporterConfig {
@@ -34,24 +36,19 @@ export interface PjreporterConfig {
   };
 }
 
-export const getHeaderStyle = (
-  fontsize:number,
-) => `
+export const getHeaderStyle = (fontsize: number) => `
 margin-left: 25px;
 font-size: ${fontsize}px;
 height: 100%;
 width:100%;
 `;
 
-export const getFooterStyle = (
-  fontsize:number,
-) => `
+export const getFooterStyle = (fontsize: number) => `
 font-size: ${fontsize}px;
 font-weight: bold;
 height: calc(100% - 10px);
 width:100%;
 `;
-
 
 export const getListStyle = () => `
 ul, ol {

@@ -1,7 +1,7 @@
 export interface GeneratePdfOptions {
   /** page to url */
   url: string;
-  /** 
+  /**
    * Selector to wait until the screen appears
    **/
   valid: string[];
