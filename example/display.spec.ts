@@ -1,6 +1,3 @@
-
-import { browser, element, by } from 'protractor';
-
 import { makeDisplayPdf } from '../dist';
 
 describe('Display Case', function () {

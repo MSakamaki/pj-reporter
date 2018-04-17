@@ -1,5 +1,5 @@
 
-import { browser, element, by } from 'protractor';
+import { browser } from 'protractor';
 
 import { makeSpecPDF } from '../dist';
 
