@@ -3,7 +3,7 @@ import { makeDisplayPdf } from '../dist';
 describe('Display Case', function () {
   it('make display pdf', async () => {
     await makeDisplayPdf({
-      title: 'display iPhone',
+      title: 'display/iPhone',
       url: 'https://angular.io/',
       valid: ['a.hero-cta'],
       displayHeight: 667,
@@ -11,7 +11,7 @@ describe('Display Case', function () {
     });
 
     await makeDisplayPdf({
-      title: 'display iPhone landscape',
+      title: 'display/iPhone landscape',
       url: 'https://angular.io/',
       valid: ['a.hero-cta'],
       displayHeight: 375,
@@ -19,7 +19,7 @@ describe('Display Case', function () {
     });
 
     await makeDisplayPdf({
-      title: 'display iPad',
+      title: 'display/iPad',
       url: 'https://angular.io/',
       valid: ['a.hero-cta'],
       displayHeight: 1024,
@@ -27,7 +27,7 @@ describe('Display Case', function () {
     });
 
     await makeDisplayPdf({
-      title: 'display iPad landscape',
+      title: 'display/iPad landscape',
       url: 'https://angular.io/',
       valid: ['a.hero-cta'],
       displayHeight: 768,

@@ -34,6 +34,32 @@ describe('Nested Case', function () {
 });
 ```
 
+## API
+
+### makeSpecPDF
+
+create spec and capture pdf
+
+see [example](https://github.com/MSakamaki/pj-reporter/tree/master/example/sample.spec.ts)
+
+[output Pdf](https://github.com/MSakamaki/pj-reporter/tree/master/pdf/Protractor Tutorial Page.pdf)
+
+### makeDisplayPdf
+
+create full screen pdf
+
+see [example](https://github.com/MSakamaki/pj-reporter/tree/master/example/display.spec.ts)
+
+[output Pdf](https://github.com/MSakamaki/pj-reporter/tree/master/pdf/display)
+
+### MakeSamnailPdf
+
+create samnail pdf
+
+see [example](https://github.com/MSakamaki/pj-reporter/tree/master/example/samnails.spec.ts)
+
+[output Pdf](https://github.com/MSakamaki/pj-reporter/tree/master/pdf/samnail)
+
 ## License
 
 MIT
