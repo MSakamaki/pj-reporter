@@ -42,7 +42,7 @@ create spec and capture pdf
 
 see [example](https://github.com/MSakamaki/pj-reporter/tree/master/example/sample.spec.ts)
 
-[output Pdf](https://github.com/MSakamaki/pj-reporter/tree/master/pdf/Protractor Tutorial Page.pdf)
+[output Pdf](https://github.com/MSakamaki/pj-reporter/blob/master/pdf/Protractor%20Tutorial%20Page.pdf)
 
 ### makeDisplayPdf
 
