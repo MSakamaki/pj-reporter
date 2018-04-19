@@ -52,13 +52,13 @@ see [example](https://github.com/MSakamaki/pj-reporter/tree/master/example/displ
 
 [output Pdf](https://github.com/MSakamaki/pj-reporter/tree/master/pdf/display)
 
-### MakeSamnailPdf
+### MakeThumbnailPdf
 
-create samnail pdf
+create Thumbnail pdf
 
-see [example](https://github.com/MSakamaki/pj-reporter/tree/master/example/samnails.spec.ts)
+see [example](https://github.com/MSakamaki/pj-reporter/tree/master/example/Thumbnails.spec.ts)
 
-[output Pdf](https://github.com/MSakamaki/pj-reporter/tree/master/pdf/samnail)
+[output Pdf](https://github.com/MSakamaki/pj-reporter/tree/master/pdf/Thumbnail)
 
 ## License
 

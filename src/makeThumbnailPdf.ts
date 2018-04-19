@@ -5,7 +5,7 @@ import { browser } from 'protractor';
 import { readConfg } from './config';
 import { MakeDir } from './utils';
 
-export class MakeSamnailPdf {
+export class MakeThumbnailPdf {
   private capturePngs: string[] = [];
 
   private config = readConfg();
