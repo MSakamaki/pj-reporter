@@ -1,15 +1,19 @@
 import * as cheerio from 'cheerio';
 import { PjreporterConfig, getFooterStyle, getListStyle } from './config';
 
+const decodeEntities = false;
+
 export const childSpec = (spec: any) => spec.description;
 
 export const childSwite = (swite: any) => {
-  const $ = cheerio.load(`<span>${swite.description}</span><ul></ul>`);
-
-  swite.children.map(childText).forEach((spec: string) => {
-    $('ul').append(`<li>${spec}</li>`);
+  const $ = cheerio.load(`<span>${swite.description}</span><ul></ul>`, {
+    decodeEntities: decodeEntities,
   });
-
+  swite.children.map(childText).forEach((spec: string) => {
+    $('ul')
+      .first()
+      .append(`<li>${spec}</li>`);
+  });
   return $('body').html();
 };
 
@@ -35,7 +39,9 @@ export const styleTag = () => {
 };
 
 export const fotterSpecs = (config: PjreporterConfig, children: any[]) => {
-  const $ = cheerio.load(makeFotterHtml(children));
+  const $ = cheerio.load(makeFotterHtml(children), {
+    decodeEntities: decodeEntities,
+  });
 
   $('.root').attr('style', getFooterStyle(config.footerFontsize));
   $('body').prepend(styleTag());
