@@ -7,9 +7,9 @@ const exec = async (command: string, cwd = '.') =>
     .toString()
     .replace(replaceCmdColorExp, '');
 
-const log = txt => console.log(txt);
+const log = (txt: string) => console.log(txt);
 
 export const exec_log = async (command: string, cwd?: string) =>
   exec(command, cwd).then(log);
 
-export const cp_dist = async filename => exec(`cp ${filename} dist/`);
+export const cp_dist = async (filename: string) => exec(`cp ${filename} dist/`);

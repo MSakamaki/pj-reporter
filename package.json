@@ -4,7 +4,7 @@
   "description": "protractor + puppeteer + jasmine reporter",
   "main": "index.js",
   "scripts": {
-    "p": "ts-node ./scripts/publish.ts",
+    "p": "ts-node --project ./scripts/tsconfig.json ./scripts/publish.ts ",
     "wdm.update": "./node_modules/protractor/bin/webdriver-manager update --gecko=false",
     "checkformat": "prettier src/**/*.ts scripts/*.ts --list-different",
     "format": "prettier src/**/*.ts scripts/*.ts --write",
