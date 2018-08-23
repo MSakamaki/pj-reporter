@@ -1,3 +1,5 @@
+import { Page } from 'puppeteer';
+
 export interface BaseSpecPdfOptions {
   /** page to url */
   url: string;
@@ -9,6 +11,10 @@ export interface BaseSpecPdfOptions {
    * If omitted, the top-level description text will be applied
    */
   title?: string;
+  /**
+   * The script before capture acquisition is executed before valid.
+   */
+  beforeScript?: (page: Page) => Promise<void>;
 }
 
 export interface MakeSpecPdfOptions extends BaseSpecPdfOptions {

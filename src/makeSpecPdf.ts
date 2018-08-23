@@ -30,6 +30,10 @@ export async function makeSpecPDF(
 
     await page.goto(options.url, { waitUntil: 'networkidle0' });
 
+    if (options.beforeScript) {
+      await options.beforeScript(page);
+    }
+
     await Promise.all(
       options.valid.map(selector => page.waitFor(selector, { timeout: 10000 })),
     );

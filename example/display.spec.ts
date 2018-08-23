@@ -33,6 +33,21 @@ describe('Display Case', function () {
       displayHeight: 768,
       displayWidth: 1024,
     });
+
+    await makeDisplayPdf({
+      title: 'display/Desktop Docment Page',
+      url: 'https://angular.io/',
+      valid: ['h1[id="what-is-angular"].no-toc'],
+      beforeScript: async(page) => {
+        await page.setViewport({ width: 1480, height: 980 });
+        await page.waitFor('a[href="docs"].nav-link', { timeout: 10000 });
+        const docLink = await page.$('a[href="docs"].nav-link');
+        await docLink.click();
+        await page.waitFor('h1[id="what-is-angular"].no-toc', { timeout: 10000 });
+      },
+      displayHeight: 1480,
+      displayWidth: 980,
+    });
   });
 
 });
