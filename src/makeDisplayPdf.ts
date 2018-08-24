@@ -1,7 +1,7 @@
-import { launch, PDFOptions } from 'puppeteer';
+import { launch, PDFOptions, ScreenshotOptions } from 'puppeteer';
 import { join } from 'path';
 
-import { MakeDisplayPdfOptions } from './interface';
+import { MakeDisplayPdfOptions, CaptureMode } from './interface';
 import { readConfg } from './config';
 import { MakeDir } from './utils';
 
@@ -29,21 +29,34 @@ export async function makeDisplayPdf(options: MakeDisplayPdfOptions) {
 
     const filepath = join(
       config.output,
-      `${options.title}_${options.displayWidth}x${options.displayHeight}.pdf`,
+      `${options.title}_${options.displayWidth}x${
+        options.displayHeight
+      }.${options.mode || 'pdf'}`,
     );
+    if (options.mode === CaptureMode.Jpg) {
+      const pdfOptions: ScreenshotOptions = {
+        path: filepath,
+      };
+      await MakeDir(filepath);
+      await page.setViewport({
+        width: options.displayWidth,
+        height: options.displayHeight,
+      });
+      await page.screenshot(pdfOptions);
+    } else {
+      const pdfOptions: PDFOptions = {
+        width: `${options.displayWidth}px`,
+        height: `${options.displayHeight}px`,
+        path: filepath,
+        scale: config.scale,
+        printBackground: true,
+        displayHeaderFooter: false,
+      };
 
-    const pdfOptions: PDFOptions = {
-      width: `${options.displayWidth}px`,
-      height: `${options.displayHeight}px`,
-      path: filepath,
-      scale: config.scale,
-      printBackground: true,
-      displayHeaderFooter: false,
-    };
-
-    await MakeDir(filepath);
-    await page.emulateMedia('screen');
-    await page.pdf(pdfOptions);
+      await MakeDir(filepath);
+      await page.emulateMedia('screen');
+      await page.pdf(pdfOptions);
+    }
   } finally {
     await pb.close();
   }

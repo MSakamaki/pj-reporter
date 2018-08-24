@@ -1,5 +1,10 @@
 import { Page } from 'puppeteer';
 
+export enum CaptureMode {
+  Pdf = 'pdf',
+  Jpg = 'jpg',
+}
+
 export interface BaseSpecPdfOptions {
   /** page to url */
   url: string;
@@ -41,6 +46,10 @@ export interface MakeDisplayPdfOptions extends BaseSpecPdfOptions {
    * conents Width
    */
   displayWidth: number;
+  /**
+   * Capture Mode (default Pdf)
+   */
+  mode?: CaptureMode;
 }
 
 export interface JasmineSuite {

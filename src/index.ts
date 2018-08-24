@@ -1,4 +1,5 @@
 export {
+  CaptureMode,
   JasmineSuite,
   MakeSpecPdfOptions,
   MakeDisplayPdfOptions,
