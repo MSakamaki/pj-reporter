@@ -18,6 +18,10 @@ export async function makeDisplayPdf(options: MakeDisplayPdfOptions) {
     const page = await pb.newPage();
 
     await page.goto(options.url, { waitUntil: 'networkidle0' });
+    await page.setViewport({
+      height: options.displayHeight,
+      width: options.displayWidth,
+    });
 
     if (options.beforeScript) {
       await options.beforeScript(page);
@@ -38,10 +42,6 @@ export async function makeDisplayPdf(options: MakeDisplayPdfOptions) {
         path: filepath,
       };
       await MakeDir(filepath);
-      await page.setViewport({
-        width: options.displayWidth,
-        height: options.displayHeight,
-      });
       await page.screenshot(pdfOptions);
     } else {
       const pdfOptions: PDFOptions = {

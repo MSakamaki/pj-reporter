@@ -29,6 +29,10 @@ export async function makeSpecPDF(
     const page = await pb.newPage();
 
     await page.goto(options.url, { waitUntil: 'networkidle0' });
+    await page.setViewport({
+      height: config.display.height,
+      width: config.display.width,
+    });
 
     if (options.beforeScript) {
       await options.beforeScript(page);

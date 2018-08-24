@@ -1,6 +1,6 @@
 import { makeDisplayPdf, CaptureMode } from '../dist';
 
-describe('Display Case', function () {
+describe('Display Case Jpg', function () {
   it('make display pdf', async () => {
     await makeDisplayPdf({
       title: 'display/iPhone',
@@ -43,14 +43,13 @@ describe('Display Case', function () {
       url: 'https://angular.io/',
       valid: ['h1[id="what-is-angular"].no-toc'],
       beforeScript: async(page) => {
-        await page.setViewport({ width: 1480, height: 980 });
         await page.waitFor('a[href="docs"].nav-link', { timeout: 10000 });
         const docLink = await page.$('a[href="docs"].nav-link');
         await docLink.click();
         await page.waitFor('h1[id="what-is-angular"].no-toc', { timeout: 10000 });
       },
-      displayHeight: 1480,
-      displayWidth: 980,
+      displayHeight: 980,
+      displayWidth: 1480,
     });
   });
 

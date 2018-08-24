@@ -9,7 +9,6 @@ describe('Nested Case', function () {
       url: await browser.getCurrentUrl(),
       valid: ['h1[id="what-is-angular"].no-toc'],
       beforeScript: async(page) => {
-        await page.setViewport({ width: 1480, height: 980 });
         await page.waitFor('a[href="docs"].nav-link', { timeout: 10000 });
         const docLink = await page.$('a[href="docs"].nav-link');
         await docLink.click();
